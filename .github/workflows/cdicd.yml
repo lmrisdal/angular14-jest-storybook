@@ -7,18 +7,14 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
+    
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 16.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16.x
 
       - name: Cache node modules
         id: cache-nodemodules
@@ -38,13 +34,18 @@ jobs:
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           yarn install --frozen-lockfile
-      - name: Build
+          
+      - name: Build 🛠
         run: |
-          yarn ghbuild
-      - name: Lint
+          yarn build:gh
+          cd dist
+          cp index.html 404.html
+
+      - name: Lint ✏️
         run: |
           yarn lint
-      - name: Test
+
+      - name: Test 🤞
         run: |
           yarn test
 
