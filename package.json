@@ -7,6 +7,7 @@
     "build": "ng build",
     "surge": "ng build && cd dist/angular14-jest-storybook && surge . --domain illegal-knife.surge.sh",
     "watch": "ng build --watch --configuration development",
+    "lint": "ng lint",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watchAll"
@@ -28,12 +29,23 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.0-rc.1",
+    "@angular-eslint/builder": "13.2.1",
+    "@angular-eslint/eslint-plugin": "13.2.1",
+    "@angular-eslint/eslint-plugin-template": "13.2.1",
+    "@angular-eslint/schematics": "13.2.1",
+    "@angular-eslint/template-parser": "13.2.1",
     "@angular/cli": "~14.0.0-rc.1",
     "@angular/compiler-cli": "^14.0.0-rc.0",
     "@types/jest": "^27.5.1",
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.0",
     "jest-preset-angular": "^12.0.1",
     "prettier": "^2.6.2",
+    "prettier-eslint": "^15.0.0",
     "typescript": "~4.6.2"
   }
 }
