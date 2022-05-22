@@ -1,6 +1,6 @@
 {
   "name": "angular14-jest-storybook",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
@@ -22,7 +22,6 @@
     "@angular/platform-browser": "^14.0.0-rc.0",
     "@angular/platform-browser-dynamic": "^14.0.0-rc.0",
     "@angular/router": "^14.0.0-rc.0",
-    "@ngneat/elf": "^2.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
