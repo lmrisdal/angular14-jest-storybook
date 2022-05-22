@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  ci:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,7 +28,7 @@ jobs:
         with:
           # caching node_modules
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -40,7 +40,7 @@ jobs:
           yarn install --frozen-lockfile
       - name: Build
         run: |
-          yarn build
+          yarn ghbuild
       - name: Lint
         run: |
           yarn lint
@@ -52,4 +52,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: dist/angular14-jest-storybook # The folder the action should deploy.
+          folder: dist # The folder the action should deploy.

@@ -5,6 +5,7 @@
     "ng": "ng",
     "dev": "ng serve",
     "build": "ng build",
+    "ghbuild": "ng build --base-href https://lmrisdal.github.io",
     "surge": "ng build && cd dist/angular14-jest-storybook && surge . --domain illegal-knife.surge.sh",
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
